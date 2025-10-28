@@ -19,10 +19,14 @@ class GameLogic {
     ];
 
     this.countMoves = 0;
+
+    this.gameOver = false;
   }
 
   checkSelectedCell(e) {
     if (e.target.classList.contains("cell")) {
+      if (this.gameOver) return;
+
       if (e.target.textContent === "") {
         e.target.textContent = this.currentPlayer;
         // this.currentPlayer = this.currentPlayer === "X" ? "O" : "X";
@@ -54,6 +58,7 @@ class GameLogic {
       let value3 = this.clickCell[index3];
 
       if (value1 === value2 && value2 === value3 && value1 !== "") {
+        this.gameOver = true;
         document.querySelector(
           ".winnerBtnDisplay"
         ).textContent = `${value1} won!`;
@@ -61,12 +66,15 @@ class GameLogic {
       }
     }
     if (this.countMoves === this.clickCell.length) {
+      this.gameOver = true;
       document.querySelector(".winnerBtnDisplay").textContent = "Its a draw!";
     }
   }
 
   resetBoard() {
     document.querySelectorAll(".cell").forEach((btn) => (btn.textContent = ""));
+    this.gameOver = false;
+
     this.currentPlayer = "X";
     this.countMoves = 0;
     this.turn.textContent = this.currentPlayer;
