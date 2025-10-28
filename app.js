@@ -6,6 +6,7 @@ class GameLogic {
 
     this.currentPlayer = "X";
     this.clickCell = [];
+
     this.winningpatterns = [
       [0, 1, 2],
       [3, 4, 5],
