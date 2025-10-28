@@ -66,7 +66,8 @@ class GameLogic {
 
   resetBoard() {
     document.querySelectorAll(".cell").forEach((btn) => (btn.textContent = ""));
-    this.currentPlayer = "O";
+    this.currentPlayer = "X";
+    this.countMoves = 0;
     this.turn.textContent = this.currentPlayer;
     document.querySelector(".winnerBtnDisplay").textContent = "";
   }
