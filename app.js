@@ -75,7 +75,7 @@ class GameLogic {
     document.querySelectorAll(".cell").forEach((btn) => (btn.textContent = ""));
     this.gameOver = false;
 
-    this.currentPlayer = "X";
+    this.currentPlayer = this.currentPlayer;
     this.countMoves = 0;
     this.turn.textContent = this.currentPlayer;
     document.querySelector(".winnerBtnDisplay").textContent = "";
