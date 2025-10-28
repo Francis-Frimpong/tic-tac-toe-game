@@ -29,6 +29,13 @@ class GameLogic {
     this.turn.textContent = this.currentPlayer;
   }
 
+  //Tomorrows checklist
+  /*
+    1. Track or create the win and draw functionality
+    2. Display who ever won in it card
+  
+  */
+
   addEventListeners() {
     this.board.addEventListener("click", (e) => this.checkSelectedCell(e));
     this.resetBtn.addEventListener("click", () => this.resetBoard());
