@@ -5,6 +5,7 @@ class GameLogic {
     this.resetBtn = document.querySelector(".ghost");
 
     this.currentPlayer = "X";
+    this.clickCell = [];
   }
 
   checkSelectedCell(e) {
@@ -21,6 +22,16 @@ class GameLogic {
         }
       }
     }
+    this.checkWinner();
+  }
+
+  checkWinner() {
+    let allCell = document.querySelectorAll(".cell");
+    this.clickCell = [];
+    allCell.forEach((cell) => {
+      this.clickCell.push(cell.textContent);
+    });
+    console.log(this.clickCell);
   }
 
   resetBoard() {
