@@ -59,9 +59,15 @@ class GameLogic {
 
       if (value1 === value2 && value2 === value3 && value1 !== "") {
         this.gameOver = true;
+
+        allCell[index1].classList.add("bg");
+        allCell[index2].classList.add("bg");
+        allCell[index3].classList.add("bg");
+
         document.querySelector(
           ".winnerBtnDisplay"
         ).textContent = `${value1} won!`;
+
         return;
       }
     }
@@ -72,7 +78,10 @@ class GameLogic {
   }
 
   resetBoard() {
-    document.querySelectorAll(".cell").forEach((btn) => (btn.textContent = ""));
+    document.querySelectorAll(".cell").forEach((btn) => {
+      btn.textContent = "";
+      btn.classList.remove("bg");
+    });
     this.gameOver = false;
 
     this.currentPlayer = this.currentPlayer;
